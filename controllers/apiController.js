@@ -65,6 +65,23 @@ export const getAbout = (req, res) => {
     })
 }
 
+export const getGallery = (req, res) => {
+    const q = "SELECT `id`, `image_url`, `created_at`, `updated_at` FROM `gallery`";
+    db.query(q, (err, data)=>{
+        if(err) return res.json(err)
+        if (data.length === 0)
+        {
+            const responseJson = {
+                "status": 200,
+                "error_msg": "no data"
+            }
+            return res.status(200).json(responseJson)
+        }
+        return res.status(200).json(data)
+    })
+}
+
+
 export const addMessage = (req, res) => {
     const q = "INSERT INTO `messages`(`name`, `email`, `phone_number`, `ip_address`, `user_agent`, `message`, `created_at`) VALUES (?)";
 

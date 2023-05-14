@@ -1,5 +1,5 @@
 import express from "express";
-import { addMessage, getAbout, getEducation, getExperience, getPortfolio } from "../controllers/apiController.js";
+import { addMessage, getAbout, getEducation, getExperience, getPortfolio, getGallery } from "../controllers/apiController.js";
 import { authenticateApiKey } from "../controllers/tokenverifier.js"
 import { contactValidation } from "../validators/validator.js";
 const router = express.Router()
@@ -9,6 +9,7 @@ router.get("/education", authenticateApiKey, getEducation)
 router.get("/experience", authenticateApiKey, getExperience)
 router.get("/portfolio", authenticateApiKey, getPortfolio)
 router.get("/about", authenticateApiKey, getAbout)
+router.get("/about", authenticateApiKey, getGallery)
 
 //POST
 router.post("/contact", authenticateApiKey, contactValidation, addMessage)
