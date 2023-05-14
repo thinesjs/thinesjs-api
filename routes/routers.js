@@ -9,7 +9,7 @@ router.get("/education", authenticateApiKey, getEducation)
 router.get("/experience", authenticateApiKey, getExperience)
 router.get("/portfolio", authenticateApiKey, getPortfolio)
 router.get("/about", authenticateApiKey, getAbout)
-router.get("/about", authenticateApiKey, getGallery)
+router.get("/gallery", authenticateApiKey, getGallery)
 
 //POST
 router.post("/contact", authenticateApiKey, contactValidation, addMessage)
